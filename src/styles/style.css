@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/* 모든 걸 초기화 시키고 나만의 CSS를 적용 */
+@import "./reset";
+
+/* html 태그에 적용되는 기본 스타일 */
+@import "./root";
+
+@font-face {
+  font-family: 'SangSangFlowerRoad';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/SangSangFlowerRoad.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chosunilbo_myungjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  font-family: "Chosunilbo_myungjo",'Pretendard-Regular';
+}
+
+h1{
+  font-family: 'SangSangFlowerRoad';
+  font-size: 125px;
+}
+
+h2{
+  font-family: 'SangSangFlowerRoad';
+  font-size: 100px;
+}
+
+h3{
+  font-family: 'Chosunilbo_myungjo';
+  font-size: 70px;
+}
+
+h4{
+  font-family: 'Pretendard-Regular';
+  font-size: 46px;
+}
+
+h5{
+  font-family: 'Chosunilbo_myungjo';
+  font-size: 40px;
+}
+
+h6{
+  font-family: 'Chosunilbo_myungjo', 'Pretendard-Regular';
+  font-size: 30px;
+}
+
+p{
+  font-family: 'Pretendard-Regular';
+  font-size: 14px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.wrapper {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.container{
+  width: 100%;
+}
+
+.content-container{
+  max-width: 1200px;
+}
