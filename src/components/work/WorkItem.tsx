@@ -7,15 +7,24 @@ import { Item } from "../../utils/workItems";
 
 const ItemContainer = styled.div`
   display: inline-block;
-  min-width: 260px;
+  width: 260px;
   height: 330px;
   border-radius: 5px;
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 const ItemImg = styled.div`
   width: inherit;
-  min-height: 140px;
+  height: 180px;
   background-color: var(--text-gray-20);
+  overflow: hidden;
+  position: relative;
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 `;
 const ItemDesc = styled.ul`
   width: inherit;
@@ -70,12 +79,25 @@ const More = styled.div`
 `;
 
 export default function WorkItem(props: Item) {
-  const { name, originalPrice, discountRate, reviewCount, likeCount } = props;
+  const {
+    name,
+    brand,
+    originalPrice,
+    discountRate,
+    reviewCount,
+    likeCount,
+    category,
+    image,
+  } = props;
   return (
     <ItemContainer>
-      <ItemImg />
+      <ItemImg>
+        <img src={image} />
+      </ItemImg>
       <ItemDesc>
-        <ItemTit>{name}</ItemTit>
+        <ItemTit>
+          [{brand}] {name}
+        </ItemTit>
         <OriginalPrice>{originalPrice}원</OriginalPrice>
         <DiscountRate>{discountRate}%</DiscountRate>
         <SalePrice>{getSalePrice(originalPrice, discountRate)}원</SalePrice>
