@@ -7,6 +7,7 @@ export interface Item {
   likeCount: number;
   category: string;
   image: string;
+  className?: string;
 }
 
 export const itemArr: Item[] = [
@@ -21,7 +22,47 @@ export const itemArr: Item[] = [
     image: "/assets/workitem/한송이 화병.jpg",
   },
   {
+    name: "한송이 화병222",
+    brand: "수북도예",
+    originalPrice: 120000,
+    discountRate: 50,
+    reviewCount: 43,
+    likeCount: 112,
+    category: "기타",
+    image: "/assets/workitem/한송이 화병.jpg",
+  },
+  {
     name: "한송이 화병",
+    brand: "수북도예",
+    originalPrice: 120000,
+    discountRate: 50,
+    reviewCount: 43,
+    likeCount: 112,
+    category: "기타",
+    image: "/assets/workitem/한송이 화병.jpg",
+  },
+  {
+    name: "한송이 화병222",
+    brand: "수북도예",
+    originalPrice: 120000,
+    discountRate: 50,
+    reviewCount: 43,
+    likeCount: 112,
+    category: "기타",
+    image: "/assets/workitem/한송이 화병.jpg",
+  },
+  {
+    name: "한송이 화병",
+    brand: "수북도예",
+    originalPrice: 120000,
+    discountRate: 50,
+    reviewCount: 43,
+    likeCount: 112,
+    category: "기타",
+    image: "/assets/workitem/한송이 화병.jpg",
+  },
+  {
+    name: "한송이 화병222",
     brand: "수북도예",
     originalPrice: 120000,
     discountRate: 50,
