@@ -7,10 +7,13 @@ export default function Work() {
       {itemArr.map((data, i) => (
         <WorkItem
           name={data.name}
+          brand={data.brand}
           originalPrice={data.originalPrice}
           discountRate={data.discountRate}
           reviewCount={data.reviewCount}
           likeCount={data.likeCount}
+          category={data.category}
+          image={data.image}
           key={i}
         />
       ))}
