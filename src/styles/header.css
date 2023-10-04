@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/* 모든 걸 초기화 시키고 나만의 CSS를 적용 */
+@import "./reset";
+
+/* html 태그에 적용되는 기본 스타일 */
+@import "./root";
+
+@import "./style";
+
+.header{
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.logo{
+  width: 87px;
+  height: 75px;
+}
+
+.header-menu{
+  display: flex;
+}
+
+.header-menu li{
+  font-family: 'Pretendard-Regular';
+  margin-left: 100px;
+}
+
+.header-menu li:first-child{
+  margin-left: 0;
+}
