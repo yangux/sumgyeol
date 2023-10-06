@@ -1,6 +1,6 @@
 import "../styles/main_banner.css";
 
-export default function Main_Banner() {
+export default function MainBanner() {
   return (
     <section className="main-banner">
       <div className="main-banner-text">

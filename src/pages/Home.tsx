@@ -1,8 +1,12 @@
-import {Routes, Route}from "react-router-dom";
 import "../styles/style.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Main_Banner from "../components/Main_Banner";
+import MainBanner from "../components/MainBanner";
+import { Link } from "react-router-dom";
+import LimitedQuantity from "../components/LimitedQuantity";
+import ItemCategory from "../components/ItemCategory";
+import IntroduceCard from "../components/IntroduceCard";
+import ExperienceSlide from "../components/ExperienceSlide";
 
 function Home() {
   return (
@@ -10,16 +14,23 @@ function Home() {
       {/* Header 메뉴 & 로고 */}
       <Header />
       <main className="wrapper">
-        <Main_Banner/>
-        {/* 1. 메인 섹션 */}
+        {/* 1. 메인 배너 */}
+        <Link to="introduce">
+          <MainBanner />
+        </Link>
         {/* 2. 내 주변 위치 */}
-        <h1>main page</h1>
         {/* 3. 띠 배너 */}
         {/* 4. 주제별 트레킹 */}
-
       </main>
+      <ItemCategory/>
+      <LimitedQuantity/>
+      <section className="wrapper">
+        <IntroduceCard></IntroduceCard>
+        <ExperienceSlide/>
+      </section>
+      
       {/* Footer */}
-      <Footer/>
+      <Footer />
     </>
   );
 }

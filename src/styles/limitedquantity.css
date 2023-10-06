@@ -1,0 +1,25 @@
+.limitedquantity {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin-left: 99px;
+  margin-top: 177px;
+}
+
+.limitedquantity-title h4 {
+  font-weight: bold;
+  line-height: 130%;
+  margin-bottom: 14px;
+  padding-top: 50px;
+}
+
+.limitedquantity-title p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  margin-bottom: 45px;
+}
+
+.limitedquantity-title button{
+  width: 329px;
+  height: 56px;
+}

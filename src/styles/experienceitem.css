@@ -1,0 +1,34 @@
+.experience-item{
+  margin-top: 215px;
+}
+
+.experience-item >*{
+  font-family: 'Pretendard-Regular';
+}
+
+.experience-item .experience-item-name{
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 49px;
+}
+
+.experience-item .flex-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience-item .flex-row >*{
+  font-size: 20px;
+}
+
+.experience-item hr{
+  margin: 30px auto;
+}
+
+.experience-item button.info{
+  width: 215px;
+  height: 54px;
+  font-size: 20px;
+  margin-top: 30px;
+}
