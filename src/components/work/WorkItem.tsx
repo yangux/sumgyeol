@@ -7,9 +7,10 @@ import { Item } from "../../utils/workItemsdata";
 
 const ItemContainer = styled.div`
   display: inline-block;
-  width: 260px;
-  height: 330px;
+  min-width: 200px;
   border-radius: 5px;
+  margin-bottom: 40px;
+  overflow: hidden;
 
   &.mainSize {
     width: 480px;
@@ -25,9 +26,8 @@ const ItemContainer = styled.div`
   }
 `;
 const ItemImg = styled.div`
-  width: inherit;
-  height: 180px;
-  background-color: var(--text-gray-20);
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   position: relative;
 
