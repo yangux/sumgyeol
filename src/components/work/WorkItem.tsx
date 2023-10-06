@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { getSalePrice } from "../../utils/price";
+import { addComma, getSalePrice } from "../../utils/price";
 import { Item } from "../../utils/workItemsdata";
 
 const ItemContainer = styled.div`
@@ -110,9 +110,11 @@ export default function WorkItem(props: Item) {
         <ItemTit>
           [{brand}] {name}
         </ItemTit>
-        <OriginalPrice>{originalPrice}원</OriginalPrice>
+        <OriginalPrice>{addComma(originalPrice)}원</OriginalPrice>
         <DiscountRate>{discountRate}%</DiscountRate>
-        <SalePrice>{getSalePrice(originalPrice, discountRate)}원</SalePrice>
+        <SalePrice>
+          {addComma(getSalePrice(originalPrice, discountRate))}원
+        </SalePrice>
         <More>
           <div>
             <FontAwesomeIcon icon={faCommentDots} />
