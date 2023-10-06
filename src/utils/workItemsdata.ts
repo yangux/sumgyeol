@@ -7,6 +7,7 @@ export interface Item {
   likeCount: number;
   category: string;
   image: string;
+  className?: string;
 }
 
 export const itemArr: Item[] = [

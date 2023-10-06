@@ -5,7 +5,7 @@ export default function Work() {
   return (
     <>
       {itemArr.map((data, i) => (
-        <WorkItem
+        <WorkItem 
           name={data.name}
           brand={data.brand}
           originalPrice={data.originalPrice}
