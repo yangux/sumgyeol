@@ -7,6 +7,7 @@ import LimitedQuantity from "../components/LimitedQuantity";
 import ItemCategory from "../components/ItemCategory";
 import IntroduceCard from "../components/IntroduceCard";
 import ExperienceSlide from "../components/ExperienceSlide";
+import YouTubeList from "../components/YouTubeList";
 
 function Home() {
   return (
@@ -25,6 +26,7 @@ function Home() {
       <ItemCategory/>
       <LimitedQuantity/>
       <section className="wrapper">
+        <YouTubeList/>
         <IntroduceCard></IntroduceCard>
         <ExperienceSlide/>
       </section>
