@@ -3,8 +3,8 @@ export interface Item {
   brand: string;
   originalPrice: number;
   discountRate: number;
-  reviewCount: number;
-  likeCount: number;
+  reviewCount?: number;
+  likeCount?: number;
   category: string;
   image: string;
   className?: string;

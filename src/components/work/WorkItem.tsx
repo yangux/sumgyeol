@@ -8,19 +8,18 @@ import { Item } from "../../utils/workItemsdata";
 const ItemContainer = styled.div`
   display: inline-block;
   width: 260px;
-  height: 330px;|
+  height: 330px;
   border-radius: 5px;
-  /* overflow: hidden; */
 
-  &.mainSize{
+  &.mainSize {
     width: 480px;
-    height:682px;
+    height: 682px;
     border: 1px solid red;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    & img{
-      width:480px;
+    & img {
+      width: 480px;
       height: 530px;
     }
   }
@@ -101,12 +100,12 @@ export default function WorkItem(props: Item) {
     likeCount,
     category,
     image,
-    className
+    className,
   } = props;
   return (
     <ItemContainer className={className}>
       <ItemImg>
-        <img src={image} />
+        <img src={image} alt={name} />
       </ItemImg>
       <ItemDesc>
         <ItemTit>
