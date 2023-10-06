@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { getSalePrice } from "../../utils/price";
-import { Item } from "../../utils/workItems";
+import { Item } from "../../utils/workItemsdata";
 
 const ItemContainer = styled.div`
   display: inline-block;
