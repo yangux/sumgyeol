@@ -65,7 +65,7 @@ const DiscountRate = styled.p`
   font-size: 14px;
   font-weight: bold;
   margin-right: 0.2rem;
-  color: var(--main-brown-60);
+  color: var(--main-brown-50);
 `;
 const SalePrice = styled.h4`
   display: inline;
@@ -98,7 +98,6 @@ export default function WorkItem(props: Item) {
     discountRate,
     reviewCount,
     likeCount,
-    category,
     image,
     className,
   } = props;

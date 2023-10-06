@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import { itemArr } from "../../utils/workItemsdata";
 import WorkItem from "./WorkItem";
+import CategoryMenu from "./CategoryMenu";
 
 const Section = styled.div`
   max-width: 1120px;
@@ -11,59 +13,32 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 `;
-const CategoryMenu = styled.ul`
-  display: flex;
-  margin-bottom: 20px;
-
-  li {
-    margin-right: 1.2rem;
-    color: var(--text-gray-50);
-    cursor: pointer;
-    &:not(li:last-child)::after {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 80%;
-      background-color: var(--text-gray-40);
-      margin-left: 1.2rem;
-    }
-  }
-`;
-
-const categories: string[] = [
-  "전체",
-  "옷",
-  "음식",
-  "악세사리",
-  "가구",
-  "식기",
-  "필기도구",
-  "악기",
-  "기타",
-];
 
 export default function WorkItemGrid() {
+  const [checked, setChecked] = useState<string>("전체");
+  const changeCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.id);
+  };
   return (
     <Section>
-      <CategoryMenu>
-        {categories.map((category, i) => (
-          <li>{category}</li>
-        ))}
-      </CategoryMenu>
+      <CategoryMenu checked={checked} changeCategory={changeCategory} />
       <GridContainer>
-        {itemArr.map((data, i) => (
-          <WorkItem
-            name={data.name}
-            brand={data.brand}
-            originalPrice={data.originalPrice}
-            discountRate={data.discountRate}
-            reviewCount={data.reviewCount}
-            likeCount={data.likeCount}
-            category={data.category}
-            image={data.image}
-            key={i}
-          />
-        ))}
+        {itemArr.map(
+          (data, i) =>
+            (checked === "전체" || checked === data.category) && (
+              <WorkItem
+                name={data.name}
+                brand={data.brand}
+                originalPrice={data.originalPrice}
+                discountRate={data.discountRate}
+                reviewCount={data.reviewCount}
+                likeCount={data.likeCount}
+                category={data.category}
+                image={data.image}
+                key={i}
+              />
+            )
+        )}
       </GridContainer>
     </Section>
   );
