@@ -8,9 +8,22 @@ import { Item } from "../../utils/workItems";
 const ItemContainer = styled.div`
   display: inline-block;
   width: 260px;
-  height: 330px;
+  height: 330px;|
   border-radius: 5px;
   /* overflow: hidden; */
+
+  &.mainSize{
+    width: 480px;
+    height:682px;
+    border: 1px solid red;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    & img{
+      width:480px;
+      height: 530px;
+    }
+  }
 `;
 const ItemImg = styled.div`
   width: inherit;
@@ -88,9 +101,10 @@ export default function WorkItem(props: Item) {
     likeCount,
     category,
     image,
+    className
   } = props;
   return (
-    <ItemContainer>
+    <ItemContainer className={className}>
       <ItemImg>
         <img src={image} />
       </ItemImg>
