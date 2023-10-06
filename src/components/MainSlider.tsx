@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 // import { Navigation, Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import WorkItem from "../components/work/WorkItem";
-import { itemArr } from "../utils/workItems";
+import { itemArr } from "../utils/workItemsdata";
 
 import "swiper/css";
 import "swiper/css/navigation";
