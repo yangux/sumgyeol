@@ -1,5 +1,5 @@
 import WorkItem from "../components/work/WorkItem";
-import { itemArr } from "../utils/workItems";
+import { itemArr } from "../utils/workItemsdata";
 
 export default function Work() {
   return (
