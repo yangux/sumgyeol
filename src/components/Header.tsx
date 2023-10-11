@@ -6,13 +6,15 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className="header">
-      <h1>
-        <img
+      <Link to="http://localhost:3000/">
+        <h1>
+          <img
             src={`${process.env.PUBLIC_URL}/assets/sumgyeol.svg`}
             alt=""
             className="logo"
           />
-      </h1>
+        </h1>
+      </Link>
       <ul className="header-menu">
         <li>
           <Link to="/introduce">장인소개</Link>

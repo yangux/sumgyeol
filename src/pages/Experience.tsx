@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ExperienceList from "../components/ExperienceList";
 import { ExperienceInfo } from "../utils/interface";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -142,106 +144,110 @@ export default function Experience() {
   ];
 
   return (
-    <Contents>
-      {/* 필터 */}
+    <>
+      <Header />
+      <Contents>
+        {/* 필터 */}
 
-      <Filtering>
-        {/* 지역 필터링 */}
-        <Select
-          style={{ marginRight: "10px" }}
-          onChange={(e) => {
-            setSelectedProvince(e.target.value);
-          }}
-        >
-          <Option value="전체보기">전체보기</Option>
-          {citycategory.map((city, index) => (
-            <Option
-              key={index}
-              value={city}
-              selected={city === selectedProvince ? true : false}
-            >
-              {city}
-            </Option>
-          ))}
-        </Select>
+        <Filtering>
+          {/* 지역 필터링 */}
+          <Select
+            style={{ marginRight: "10px" }}
+            onChange={(e) => {
+              setSelectedProvince(e.target.value);
+            }}
+          >
+            <Option value="전체보기">전체보기</Option>
+            {citycategory.map((city, index) => (
+              <Option
+                key={index}
+                value={city}
+                selected={city === selectedProvince ? true : false}
+              >
+                {city}
+              </Option>
+            ))}
+          </Select>
 
-        {/* 체험종류 필터링 */}
-        <Select
-          style={{ backgroundColor: "white", color: "black" }}
-          onChange={(e) => {
-            setSelectedKind(e.target.value);
-          }}
-        >
-          <Option value="">체험종류</Option>
-          {activecategory.map((active, index) => (
-            <Option
-              key={index}
-              value={active}
-              selected={active === selectedKind ? true : false}
-            >
-              {active}
-            </Option>
-          ))}
-        </Select>
+          {/* 체험종류 필터링 */}
+          <Select
+            style={{ backgroundColor: "white", color: "black" }}
+            onChange={(e) => {
+              setSelectedKind(e.target.value);
+            }}
+          >
+            <Option value="">체험종류</Option>
+            {activecategory.map((active, index) => (
+              <Option
+                key={index}
+                value={active}
+                selected={active === selectedKind ? true : false}
+              >
+                {active}
+              </Option>
+            ))}
+          </Select>
 
-        <Search>
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <button type="submit">검색</button>
-        </Search>
-      </Filtering>
+          <Search>
+            <input
+              type="text"
+              placeholder="검색어를 입력하세요."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+            <button type="submit">검색</button>
+          </Search>
+        </Filtering>
 
-      {/* 탭 */}
-      <div>
-        <Button
-          className={activeTab === "tab1" ? "active" : ""}
-          onClick={() => handleTabClick("tab1")}
-        >
-          체험신청
-        </Button>
+        {/* 탭 */}
+        <div>
+          <Button
+            className={activeTab === "tab1" ? "active" : ""}
+            onClick={() => handleTabClick("tab1")}
+          >
+            체험신청
+          </Button>
 
-        <Button
-          className={activeTab === "tab2" ? "active" : ""}
-          onClick={() => handleTabClick("tab2")}
-        >
-          체험후기
-        </Button>
-      </div>
+          <Button
+            className={activeTab === "tab2" ? "active" : ""}
+            onClick={() => handleTabClick("tab2")}
+          >
+            체험후기
+          </Button>
+        </div>
 
-      {/* 탭 내용 */}
+        {/* 탭 내용 */}
 
-      {/* 체험하기 리스트 */}
-      <div className="tab-content">
-        {activeTab === "tab1" && (
-          <div className="card_box">
-            {exArr.map((el) => {
-              return (
-                <ExperienceList
-                  src={el.src}
-                  provinces={el.provinces}
-                  kind={el.kind}
-                  title={el.title}
-                  text={el.text}
-                  date={el.date}
-                  location={el.location}
-                  people={el.people}
-                  provincesState={selectedProvince}
-                  activeState={selectedKind}
-                />
-              );
-            })}
+        {/* 체험하기 리스트 */}
+        <div className="tab-content">
+          {activeTab === "tab1" && (
+            <div className="card_box">
+              {exArr.map((el) => {
+                return (
+                  <ExperienceList
+                    src={el.src}
+                    provinces={el.provinces}
+                    kind={el.kind}
+                    title={el.title}
+                    text={el.text}
+                    date={el.date}
+                    location={el.location}
+                    people={el.people}
+                    provincesState={selectedProvince}
+                    activeState={selectedKind}
+                  />
+                );
+              })}
 
-            {/* 필터링된 결과가 없을 때 표시될 문구 */}
-            {exArr.length === 0 && <div>필터링된 결과가 없습니다.</div>}
-          </div>
-        )}
-      </div>
+              {/* 필터링된 결과가 없을 때 표시될 문구 */}
+              {exArr.length === 0 && <div>필터링된 결과가 없습니다.</div>}
+            </div>
+          )}
+        </div>
 
-      {activeTab === "tab2" && <div>탭 2 내용을 여기에 표시합니다.</div>}
-    </Contents>
+        {activeTab === "tab2" && <div>탭 2 내용을 여기에 표시합니다.</div>}
+      </Contents>
+      <Footer />
+    </>
   );
 }
