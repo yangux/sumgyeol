@@ -19,14 +19,14 @@ function Home() {
           <MainBanner />
         </Link>
       </main>
-      <ItemCategory/>
-      <LimitedQuantity/>
+      <ItemCategory />
+      <LimitedQuantity />
       <section className="wrapper">
-        <YouTubeList/>
+        <YouTubeList />
         <IntroduceCard></IntroduceCard>
       </section>
-        <ExperienceSlide/>
-      
+      <ExperienceSlide />
+
       {/* Footer */}
       <Footer />
     </>
