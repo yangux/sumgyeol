@@ -14,10 +14,11 @@ import "../styles/mainslider.css";
 export default function App() {
   return (
     <>
-      <Swiper
+      <Swiper 
+      className="main-slide"
         modules={[Navigation]}
-        spaceBetween={0}
-        slidesPerView={2.7}
+        spaceBetween={50}
+        slidesPerView={2.5} 
         navigation
       >
         {itemArr.map((data, i) => (

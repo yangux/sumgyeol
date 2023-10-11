@@ -15,6 +15,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
 }
 
 .master-introduce-card .master-introduce-text {
@@ -30,6 +31,57 @@
 
 
 .master-introduce-text > hr {
+  background: var(--text-gray-20);
+  height: 2px;
+  border: 0;
+  margin: 20px auto;
+}
+
+
+.best-introduce-title{
+  font-size: 50px;
+  margin-bottom: 35px;
+}
+
+.best-introduce-page{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.master-introduce-card.best-int-grid{
+margin-left: 24px;
+border-radius: 10px;
+}
+
+.master-introduce-card.best-int-grid:nth-child(n+4){
+  display: none;
+}
+
+.master-introduce-card.best-int-grid img{
+  border-radius: 10px;
+  height: 100%;
+}
+
+.master-introduce-card.best-int-grid:first-child{
+  margin-left: 0px;
+}
+
+.master-introduce-card .best-master-introduce-text> *{
+  color: var(--text-gray-10);
+  font-family: 'Pretendard-Regular';
+}
+
+.master-introduce-card .best-master-introduce-text{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 0px 26px 44px 26px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.master-introduce-card .best-master-introduce-text >hr{
   background: var(--text-gray-20);
   height: 2px;
   border: 0;

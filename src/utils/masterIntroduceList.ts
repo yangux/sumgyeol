@@ -1,6 +1,6 @@
 export interface List {
   name: string;
-  master: string;
+  master?: string;
   category?: string;
   image: string;
   className?: string;
@@ -9,6 +9,22 @@ export interface List {
 }
 
 export const listArr: List[] = [
+  {
+    master: "선자장",
+    name: "김주용",
+    category: "공예",
+    image: "/assets/master/master7.png",
+    brand: "부채공예",
+    workPlace: "죽호바람",
+  },
+  {
+    master: "도예장",
+    name: "류보선",
+    category: "공예",
+    image: "/assets/master/master8.png",
+    brand: "도예공예",
+    workPlace: "플루머드",
+  },
   {
     master: "옥장",
     name: "엄익평",
