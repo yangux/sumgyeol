@@ -12,16 +12,12 @@ const ItemContainer = styled.div`
   border-radius: 5px;
 
   &.mainSize {
-    width: 480px;
+    width: inherit;
     height: 682px;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    & img {
-      width: 480px;
-      height: 530px;
-    }
+
   }
 `;
 const ItemImg = styled.div`

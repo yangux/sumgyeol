@@ -1,5 +1,8 @@
 .experience-item{
   margin-top: 215px;
+  margin-bottom: 288px;
+  position: static;
+  width: 100%;
 }
 
 .experience-item >*{
@@ -31,4 +34,28 @@
   height: 54px;
   font-size: 20px;
   margin-top: 30px;
+  padding: 15px 45px;
+}
+
+/* .experience-slide{
+  width: 1520px;
+  margin: 0 auto;
+} */
+
+/* .experience-slide .swiper{
+  width: 1540px;
+} */
+
+/* .experience-slide .swiper .swiper-wrapper{
+  width: 1520px;
+} */
+
+.experience-slide{
+  position: relative;
+  width: 1520px;
+  margin: 0 auto;
+}
+
+.experience-slide .experience-item .swiper-wrapper{
+  width: 1520px;
 }
