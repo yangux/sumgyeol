@@ -2,14 +2,15 @@ import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { getSalePrice } from "../../utils/price";
+import { addComma, getSalePrice } from "../../utils/price";
 import { Item } from "../../utils/workItemsdata";
 
 const ItemContainer = styled.div`
   display: inline-block;
-  width: 260px;
-  height: 330px;
+  min-width: 200px;
   border-radius: 5px;
+  margin-bottom: 40px;
+  overflow: hidden;
 
   &.mainSize {
     width: 480px;
@@ -25,9 +26,8 @@ const ItemContainer = styled.div`
   }
 `;
 const ItemImg = styled.div`
-  width: inherit;
-  height: 180px;
-  background-color: var(--text-gray-20);
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   position: relative;
 
@@ -65,7 +65,7 @@ const DiscountRate = styled.p`
   font-size: 14px;
   font-weight: bold;
   margin-right: 0.2rem;
-  color: var(--main-brown-60);
+  color: var(--main-brown-50);
 `;
 const SalePrice = styled.h4`
   display: inline;
@@ -98,7 +98,6 @@ export default function WorkItem(props: Item) {
     discountRate,
     reviewCount,
     likeCount,
-    category,
     image,
     className,
   } = props;
@@ -111,9 +110,11 @@ export default function WorkItem(props: Item) {
         <ItemTit>
           [{brand}] {name}
         </ItemTit>
-        <OriginalPrice>{originalPrice}원</OriginalPrice>
+        <OriginalPrice>{addComma(originalPrice)}원</OriginalPrice>
         <DiscountRate>{discountRate}%</DiscountRate>
-        <SalePrice>{getSalePrice(originalPrice, discountRate)}원</SalePrice>
+        <SalePrice>
+          {addComma(getSalePrice(originalPrice, discountRate))}원
+        </SalePrice>
         <More>
           <div>
             <FontAwesomeIcon icon={faCommentDots} />
