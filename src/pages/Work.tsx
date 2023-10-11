@@ -1,7 +1,9 @@
-export default function Work(){
-  return(
+import WorkItemGrid from "../components/work/WorkItemGrid";
+
+export default function Work() {
+  return (
     <>
-    work
+      <WorkItemGrid />
     </>
-  )
+  );
 }
