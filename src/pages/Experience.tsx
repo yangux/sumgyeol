@@ -7,7 +7,7 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState("tab1");
   const [selectedProvince, setSelectedProvince] = useState(" ");
   const [selectedKind, setSelectedKind] = useState("");
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState<string>("");
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
   };
