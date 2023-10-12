@@ -3,6 +3,7 @@ import CartListItem from "./CartListItem";
 import BtnClose from "./BtnClose";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { addComma } from "../utils/price";
 
 const SideBarContainer = styled.div`
   position: fixed;
@@ -88,6 +89,12 @@ const Btn = styled.button`
 
 export default function MyPage() {
   const cartListArr = useSelector((state: RootState) => state.cart.list);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+  const discountedPrice = useSelector(
+    (state: RootState) => state.cart.discountedPrice
+  );
+  const finalPrice = useSelector((state: RootState) => state.cart.finalPrice);
+  const deliberyFee = 3000;
   return (
     <SideBarContainer>
       <BtnClose size={34} className="isBig" />
@@ -110,19 +117,19 @@ export default function MyPage() {
       <PriceArea>
         <PriceListItem>
           <p>상품 금액</p>
-          <p>000 원</p>
+          <p>{addComma(totalPrice)} 원</p>
         </PriceListItem>
         <PriceListItem>
           <p>할인 금액</p>
-          <p>-000 원</p>
+          <p>-{addComma(discountedPrice)} 원</p>
         </PriceListItem>
         <PriceListItem>
           <p>배송비</p>
-          <p>+3,000 원</p>
+          <p>+{addComma(deliberyFee)}원</p>
         </PriceListItem>
         <PriceListItem>
           <p>결제 예정 금액</p>
-          <p>000 원</p>
+          <p>{finalPrice === 0 ? 0 : addComma(finalPrice + 3000)} 원</p>
         </PriceListItem>
       </PriceArea>
       <BtnArea>

@@ -1,8 +1,15 @@
-export function getSalePrice(
+export function getDiscountedPrice(
   originalPrice: number,
   discountRate: number
 ): number {
   return (originalPrice * discountRate) / 100;
+}
+
+export function getSalePrice(
+  originalPrice: number,
+  discountRate: number
+): number {
+  return originalPrice - getDiscountedPrice(originalPrice, discountRate);
 }
 
 export function addComma(price: number): any {
