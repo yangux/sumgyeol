@@ -38,6 +38,12 @@ const ItemImg = styled.div`
     top: 50%;
     transform: translateY(-50%);
   }
+  @media (max-width: 540px) {
+    height: 300px;
+  }
+  @media (max-width: 400px) {
+    height: 240px;
+  }
 `;
 const ItemDesc = styled.ul`
   width: inherit;

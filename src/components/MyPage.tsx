@@ -18,6 +18,10 @@ const SideBarContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const TabMenu = styled.ul`
@@ -45,6 +49,8 @@ const CartList = styled.ul`
 `;
 const FirstMessage = styled.h3`
   text-align: center;
+  word-break: keep-all;
+  line-height: 1.5;
   position: absolute;
   top: 50%;
   left: 50%;
