@@ -155,6 +155,7 @@ export default function WorkItem(props: Item) {
                     originalPrice: originalPrice,
                     discountRate: discountRate,
                     image: image,
+                    added: true,
                   })
                 )
               }

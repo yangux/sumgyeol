@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CartListItem from "./CartListItem";
-import BtnClose from "./BtnClose";
+import { BtnCloseContainer } from "../styles/BtnCloseStyle";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { addComma } from "../utils/price";
@@ -32,6 +32,7 @@ const TabMenu = styled.ul`
     border-bottom: 1px solid black;
   }
 `;
+
 const CartList = styled.ul`
   display: block;
   width: 100%;
@@ -39,6 +40,16 @@ const CartList = styled.ul`
   overflow-y: scroll;
   flex-grow: 2;
   margin-top: 20px;
+  position: relative;
+`;
+const FirstMessage = styled.h3`
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-gray-30);
+  font-size: 1rem;
 `;
 const PriceArea = styled.ul`
   flex-basis: 120px;
@@ -50,18 +61,20 @@ const PriceArea = styled.ul`
     margin-top: 10px;
     padding-top: 10px;
     p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: bold;
+      color: #000;
     }
   }
 `;
 const PriceListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  color: var(--text-gray-60);
   line-height: 1.6;
 
   p {
-    font-size: 1rem;
+    font-size: 12px;
   }
 `;
 const BtnArea = styled.div`
@@ -88,7 +101,11 @@ const Btn = styled.button`
 `;
 
 export default function MyPage() {
-  const cartListArr = useSelector((state: RootState) => state.cart.list);
+  const cartList = useSelector((state: RootState) => state.cart.list);
+  const cartAddedList = cartList.filter((item) => item.added);
+  const firstMessage = useSelector(
+    (state: RootState) => state.cart.firstMessage
+  );
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const discountedPrice = useSelector(
     (state: RootState) => state.cart.discountedPrice
@@ -97,13 +114,17 @@ export default function MyPage() {
   const deliberyFee = 3000;
   return (
     <SideBarContainer>
-      <BtnClose size={34} className="isBig" />
+      <BtnCloseContainer
+        className="isBig"
+        onClick={() => console.log("close")}
+      />
       <TabMenu>
         <li>장인작품</li>
         <li>체험하기</li>
       </TabMenu>
       <CartList>
-        {cartListArr.map((data: any, i) => (
+        {firstMessage && <FirstMessage>{firstMessage}</FirstMessage>}
+        {cartAddedList.map((data: any, i) => (
           <CartListItem
             name={data.name}
             brand={data.brand}
@@ -125,7 +146,7 @@ export default function MyPage() {
         </PriceListItem>
         <PriceListItem>
           <p>배송비</p>
-          <p>+{addComma(deliberyFee)}원</p>
+          <p>+{addComma(deliberyFee)} 원</p>
         </PriceListItem>
         <PriceListItem>
           <p>결제 예정 금액</p>

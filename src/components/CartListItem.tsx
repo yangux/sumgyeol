@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Item } from "../utils/workItemsdata";
 import { addComma, getSalePrice } from "../utils/price";
-import BtnClose from "./BtnClose";
+import { BtnCloseContainer } from "../styles/BtnCloseStyle";
+import { useDispatch } from "react-redux";
+import { remove } from "../store/modules/cart";
 
 const CartListItemContainer = styled.li`
   width: calc(100% - 20px);
@@ -61,6 +63,7 @@ const SalePrice = styled.h4`
 `;
 export default function CartListItem(data: Item) {
   const { name, brand, image, originalPrice, discountRate } = data;
+  const dispatch = useDispatch();
   return (
     <CartListItemContainer>
       <ItemImg>
@@ -76,7 +79,17 @@ export default function CartListItem(data: Item) {
           {addComma(getSalePrice(originalPrice, discountRate))}원
         </SalePrice>
       </ItemDesc>
-      <BtnClose size={24} />
+      <BtnCloseContainer
+        onClick={() =>
+          dispatch(
+            remove({
+              name: name,
+              originalPrice: originalPrice,
+              discountRate: discountRate,
+            })
+          )
+        }
+      />
     </CartListItemContainer>
   );
 }
