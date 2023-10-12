@@ -19,10 +19,13 @@ const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+<<<<<<< Updated upstream
     & img {
       width: 480px;
       height: 530px;
     }
+=======
+>>>>>>> Stashed changes
   }
 `;
 const ItemImg = styled.div`
@@ -115,16 +118,18 @@ export default function WorkItem(props: Item) {
         <SalePrice>
           {addComma(getSalePrice(originalPrice, discountRate))}원
         </SalePrice>
-        <More>
-          <div>
-            <FontAwesomeIcon icon={faCommentDots} />
-            <p>{reviewCount}</p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faHeart} />
-            <p>{likeCount}</p>
-          </div>
-        </More>
+        {reviewCount && likeCount && (
+          <More>
+            <div>
+              <FontAwesomeIcon icon={faCommentDots} />
+              <p>{reviewCount}</p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faHeart} />
+              <p>{likeCount}</p>
+            </div>
+          </More>
+        )}
       </ItemDesc>
     </ItemContainer>
   );

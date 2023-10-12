@@ -5,7 +5,7 @@ export interface Item {
   discountRate: number;
   reviewCount?: number;
   likeCount?: number;
-  category: string;
+  category?: string;
   image: string;
   className?: string;
 }
