@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { itemArr } from "../utils/workItemsdata";
 import CartListItem from "./CartListItem";
 import BtnClose from "./BtnClose";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 const SideBarContainer = styled.div`
   position: fixed;
@@ -84,7 +85,9 @@ const Btn = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
 export default function MyPage() {
+  const cartListArr = useSelector((state: RootState) => state.cart.list);
   return (
     <SideBarContainer>
       <BtnClose size={34} className="isBig" />
@@ -93,7 +96,7 @@ export default function MyPage() {
         <li>체험하기</li>
       </TabMenu>
       <CartList>
-        {itemArr.map((data, i) => (
+        {cartListArr.map((data: any, i) => (
           <CartListItem
             name={data.name}
             brand={data.brand}
