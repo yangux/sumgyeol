@@ -17,6 +17,7 @@ const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 1000;
 `;
 
 const TabMenu = styled.ul`
@@ -100,7 +101,7 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
-export default function MyPage() {
+export default function MyPage({ setModal }: any) {
   const cartList = useSelector((state: RootState) => state.cart.list);
   const cartAddedList = cartList.filter((item) => item.added);
   const firstMessage = useSelector(
@@ -114,10 +115,7 @@ export default function MyPage() {
   const deliberyFee = 3000;
   return (
     <SideBarContainer>
-      <BtnCloseContainer
-        className="isBig"
-        onClick={() => console.log("close")}
-      />
+      <BtnCloseContainer className="isBig" onClick={() => setModal(false)} />
       <TabMenu>
         <li>장인작품</li>
         <li>체험하기</li>
