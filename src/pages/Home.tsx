@@ -19,14 +19,14 @@ function Home() {
         </Link>
       <main className="wrapper">
       </main>
-      <ItemCategory/>
-      <LimitedQuantity/>
+      <ItemCategory />
+      <LimitedQuantity />
       <section className="wrapper">
-        <YouTubeList/>
+        <YouTubeList />
         <IntroduceCard></IntroduceCard>
       </section>
-        <ExperienceSlide/>
-      
+      <ExperienceSlide />
+
       {/* Footer */}
       <Footer />
     </>
