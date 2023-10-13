@@ -31,7 +31,7 @@ export default function Header() {
             <Link to="/experience">체험하기</Link>
           </li>
         </ul>
-        <div className="login-flex">
+        <div className="login-flex" onClick={() => setModal(true)}>
           <div>
             <button className="plain round">로그인</button>
           </div>
