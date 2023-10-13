@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { ExperienceInfo } from "../utils/interface";
 
@@ -68,8 +67,8 @@ export default function ExperienceList(props: ExperienceInfo) {
   return (
     <>
       {(props.provincesState === props.provinces ||
-        props.provincesState === " " ||
-        props.provincesState === "전체보기") &&
+        props.provincesState === "" ||
+        props.provincesState === "전국") &&
         (props.activeState === props.kind ||
           props.activeState === "" ||
           props.activeState === "체험종류") && (

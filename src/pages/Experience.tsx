@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import ExperienceList from "../components/ExperienceList";
-import { ExperienceInfo } from "../utils/interface";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ExperienceList from "../components/ExperienceList";
+import { ExperienceInfo } from "../utils/interface";
+import ExperienceBoard from "../components/ExperienceBoard";
 
 export default function Experience() {
-  const [activeTab, setActiveTab] = useState("tab1");
-  const [selectedProvince, setSelectedProvince] = useState(" ");
-  const [selectedKind, setSelectedKind] = useState("");
-  const [searchInput, setSearchInput] = useState<string>("");
+  const [activeTab, setActiveTab] = useState("tab1"); // 탭
+  const [selectedProvince, setSelectedProvince] = useState(""); // 지역 검색 필터
+  const [selectedKind, setSelectedKind] = useState(""); // 체험종류 검색 필터
+
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
   };
 
   const Contents = styled.div`
     width: 1200px;
-    margin: 0 auto;
+    margin: 80px auto 200px;
   `;
 
   const Button = styled.button`
@@ -24,6 +25,7 @@ export default function Experience() {
     height: 80px;
     border-radius: 10px 10px 0 0;
     border: 0;
+    background-color: #ececec;
     box-shadow: 0px 0px 10px #999;
     font-size: 1.2rem;
     font-weight: 500;
@@ -102,28 +104,18 @@ export default function Experience() {
 
   const exArr: ExperienceInfo[] = [
     {
+      src: "/assets/ex_02.png",
+      provinces: "경기도",
+      kind: "전시회",
+      title: "생옻칠 수저만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
       src: "/assets/ex_01.png",
       provinces: "경상북도",
-      kind: "만들기",
-      title: "짚 공예품 만들기",
-      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
-      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
-      location: "하회마을 남촌댁(염행당)",
-      people: "매회 30명 내외",
-    },
-    {
-      src: "/assets/ex_02.png",
-      provinces: "경상남도",
-      kind: "전시회",
-      title: "짚 공예품 전시회",
-      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
-      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
-      location: "하회마을 남촌댁(염행당)",
-      people: "매회 30명 내외",
-    },
-    {
-      src: "/assets/ex_01.png",
-      provinces: "경기도",
       kind: "강의",
       title: "짚 공예품 강의",
       text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
@@ -133,7 +125,37 @@ export default function Experience() {
     },
     {
       src: "/assets/ex_02.png",
-      provinces: "서울특별시",
+      provinces: "경상남도",
+      kind: "만들기",
+      title: "도자기 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "광주광역시",
+      kind: "전시회",
+      title: "부채 제작",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "대구광역시",
+      kind: "강의",
+      title: "생옻칠 수저만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "대전광역시",
       kind: "전시회",
       title: "짚 공예품 만들기",
       text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
@@ -141,7 +163,155 @@ export default function Experience() {
       location: "하회마을 남촌댁(염행당)",
       people: "매회 30명 내외",
     },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "부산광역시",
+      kind: "만들기",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "서울특별시",
+      kind: "강의",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "세종특별자치시",
+      kind: "전시회",
+      title: "수저 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "인천광역시",
+      kind: "만들기",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "울산광역시",
+      kind: "만들기",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "전라남도",
+      kind: "전시회",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "전라북도",
+      kind: "전시회",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "제주특별자치시",
+      kind: "강의",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_02.png",
+      provinces: "충청남도",
+      kind: "만들기",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
+    {
+      src: "/assets/ex_01.png",
+      provinces: "충청북도",
+      kind: "강의",
+      title: "짚 공예품 만들기",
+      text: "짚을 이용한 공예품을 만들어 농촌생활문화 체험 새끼줄 꼬기, 망태기 및 삼태기 만들기, 멍석 만들기 체험",
+      date: "매주 주말, 공휴일 10:00 ~ 13:00, 13:00 ~ 16:00",
+      location: "하회마을 남촌댁(염행당)",
+      people: "매회 30명 내외",
+    },
   ];
+
+  const NouFound = styled.p`
+    width: 80%;
+    padding: 100px 0;
+    box-shadow: 0px 0px 10px #999;
+    border-radius: 10px;
+    margin: 200px auto;
+    text-align: center;
+    font-size: 25px;
+
+    & button {
+      border: 0;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      font-size: 18px;
+      margin-top: 30px;
+      padding: 10px 30px;
+      cursor: pointer;
+    }
+  `;
+
+  let newArr: ExperienceInfo[] = [];
+  const [searchArr, setSearchArr] = useState<ExperienceInfo[]>([]);
+  const searchInput = useRef<HTMLInputElement>(null);
+
+  // 검색 로직
+  const handleValueInput = () => {
+    newArr = [];
+    exArr.forEach((el, i) => {
+      if (searchInput.current) {
+        if (el.title.includes(searchInput.current?.value)) {
+          newArr.push(el);
+        }
+      }
+    });
+    setSearchArr(newArr);
+  };
+
+  const enterkey = useRef<HTMLButtonElement>(null);
+  const InputEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(searchInput.current?.value);
+
+    // enter 눌렸을 때 if문
+    if (e.key === "Enter") {
+      handleValueInput();
+    }
+  };
 
   return (
     <>
@@ -157,7 +327,7 @@ export default function Experience() {
               setSelectedProvince(e.target.value);
             }}
           >
-            <Option value="전체보기">전체보기</Option>
+            <Option value="전국">전국</Option>
             {citycategory.map((city, index) => (
               <Option
                 key={index}
@@ -191,11 +361,17 @@ export default function Experience() {
           <Search>
             <input
               type="text"
-              placeholder="검색어를 입력하세요."
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="체험명을 검색하세요."
+              ref={searchInput}
+              onKeyDown={(e) => InputEnter(e)}
             />
-            <button type="submit">검색</button>
+            <button
+              type="submit"
+              ref={enterkey}
+              onClick={() => handleValueInput()}
+            >
+              검색
+            </button>
           </Search>
         </Filtering>
 
@@ -217,35 +393,64 @@ export default function Experience() {
         </div>
 
         {/* 탭 내용 */}
-
         {/* 체험하기 리스트 */}
         <div className="tab-content">
           {activeTab === "tab1" && (
             <div className="card_box">
-              {exArr.map((el) => {
-                return (
-                  <ExperienceList
-                    src={el.src}
-                    provinces={el.provinces}
-                    kind={el.kind}
-                    title={el.title}
-                    text={el.text}
-                    date={el.date}
-                    location={el.location}
-                    people={el.people}
-                    provincesState={selectedProvince}
-                    activeState={selectedKind}
-                  />
-                );
-              })}
+              {searchArr.length === 0
+                ? exArr.map((el, index) => {
+                    return (
+                      <ExperienceList
+                        src={el.src}
+                        provinces={el.provinces}
+                        kind={el.kind}
+                        title={el.title}
+                        text={el.text}
+                        date={el.date}
+                        location={el.location}
+                        people={el.people}
+                        provincesState={selectedProvince}
+                        activeState={selectedKind}
+                        key={index}
+                      />
+                    );
+                  })
+                : searchArr.map((el, index) => {
+                    return (
+                      <ExperienceList
+                        src={el.src}
+                        provinces={el.provinces}
+                        kind={el.kind}
+                        title={el.title}
+                        text={el.text}
+                        date={el.date}
+                        location={el.location}
+                        people={el.people}
+                        provincesState={selectedProvince}
+                        activeState={selectedKind}
+                        key={index}
+                      />
+                    );
+                  })}
 
               {/* 필터링된 결과가 없을 때 표시될 문구 */}
-              {exArr.length === 0 && <div>필터링된 결과가 없습니다.</div>}
+              {exArr.length === 0 && (
+                <NouFound>
+                  검색하신 체험명이 없습니다.
+                  <a href="">
+                    <button>체험 전체보기</button>
+                  </a>
+                </NouFound>
+              )}
+            </div>
+          )}
+
+          {activeTab === "tab2" && (
+            <div>
+              <ExperienceBoard />
             </div>
           )}
         </div>
-
-        {activeTab === "tab2" && <div>탭 2 내용을 여기에 표시합니다.</div>}
       </Contents>
       <Footer />
     </>
