@@ -8,7 +8,7 @@ export default function BestIntroduce() {
   return (
     <>
       <h4 className="best-introduce-title bold">인기장인들</h4>
-      <div className="wrapper">
+
    
           <div className="best-introduce-page">
             {listArr.map((data, i) => (
@@ -22,7 +22,7 @@ export default function BestIntroduce() {
               />
             ))}
           </div>
-      </div>
+
     </>
   );
 }

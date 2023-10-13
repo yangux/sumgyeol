@@ -8,28 +8,203 @@
 
 @import "./style";
 
-.header{
+.header {
   display: flex;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   justify-content: space-between;
+  height: 110px;
+  position: relative;
 }
 
-.logo{
+header .header-logo {
+  height: fit-content;
+}
+
+.logo {
   width: 87px;
   height: 75px;
 }
 
-.header-menu{
+.header-menu {
   display: flex;
 }
 
-.header-menu li{
-  font-family: 'Pretendard-Regular';
+.header-menu li {
+  font-family: "Pretendard-Regular";
   margin-left: 100px;
+  position: relative;
 }
 
-.header-menu li:first-child{
+.header-menu li:hover::after,
+.header-menu li:active::after {
+  transform: scaleX(1);
+}
+
+.header-menu li::after {
+  margin-top: 4px;
+  display: block;
+  content: "";
+  border-bottom: solid 3px var(--text-gray-70);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+  transform-origin: 0% 50%;
+}
+
+.header-menu li:first-child {
   margin-left: 0;
+}
+
+header .login-flex {
+  display: flex;
+}
+
+header .login-flex button.plain,
+.round {
+  padding: 10px 38px;
+  font-size: 20px;
+  width: 140px;
+  height: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+header .login-flex .person-icon img {
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+}
+
+header .header-menu li a {
+  font-size: 25px;
+}
+
+.login-content {
+  position: absolute;
+  width: 586px;
+  height: 900px;
+  z-index: 2;
+  padding: 29px 60px 66px 60px;
+  right: 0;
+  top: 110px;
+  background: var(--text-gray-10);
+}
+
+.login-content .login-content-menu {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.login-content .login-content-menu div {
+  font-size: 25px;
+  /* font-family: 'Pretendard-Regular'; */
+}
+
+.login-content > * {
+  font-family: "Pretendard-Regular";
+}
+
+.login-content .login-content-menu .login-content-menu-aside-line {
+  width: 2px;
+  height: 100%;
+  background-color: var(--text-gray-70);
+}
+
+
+.login-content .login-content-menu div:active {
+  color: red;
+}
+
+.login-content .login-content-wish-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--text-gray-20);
+}
+
+.login-content .login-content-wish-list img {
+  width: 110px;
+  height: 110px;
+}
+
+.login-content
+  .login-content-wish-list
+  .login-content-wish-list-text
+  .login-content-wish-list-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.login-content
+  .login-content-wish-list
+  .login-content-wish-list-text
+  .login-content-wish-list-item {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.login-content
+  .login-content-wish-list
+  .login-content-wish-list-text
+  .login-content-wish-list-buy {
+  font-size: 14px;
+}
+
+.login-content .login-content-wish-list .login-content-wish-list-text {
+  margin: 0 20px;
+}
+
+.login-content .login-content-menu-bottom-line {
+  margin-top: 47px;
+}
+.login-content .login-content-wish-list .login-content-wish-list-x {
+  position: relative;
+  cursor: pointer;
+}
+
+.login-content-wish-list-x:before,
+.login-content-wish-list-x:after {
+  position: absolute;
+  right: 7px;
+  top: -8px;
+  content: "";
+  height: 18px;
+  width: 1px;
+  background-color: #222;
+}
+.login-content-wish-list-x:before {
+  transform: rotate(45deg);
+}
+.login-content-wish-list-x:after {
+  transform: rotate(-45deg);
+}
+
+.login-content-select{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90%;
+  width: 100%;
+}
+.login-content-select>div{
+  width: 100%;
+}
+
+.login-content .login-content-select-btn{
+  width: 100%;
+}
+
+
+.login-content .login-content-select .login-content-select-total{
+  text-align: right;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 31px;
 }
