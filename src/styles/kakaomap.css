@@ -1,0 +1,35 @@
+
+.kakao-map #mapwrap{
+  position: relative;
+  margin-bottom: 177px;
+  border-radius: 10px;
+}
+.kakao-map .category{
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 10;
+}
+
+.kakao-map .category ul{
+  display: flex;
+}
+
+.kakao-map .category ul li{
+  background: var(--text-gray-10);
+  font-family: 'Pretendard-Regular';
+  padding: 10px;
+  border: 1px solid var(--main-brown-50); 
+}
+
+.kakao-map .category ul li:first-child{
+  border-radius: 5px 0px 0px 5px;
+}
+.kakao-map .category ul li:last-child{
+  border-radius:  0 5px 5px 0;
+}
+
+.kakao-map .category ul li:not(:last-child){
+  border-right: none;
+
+}

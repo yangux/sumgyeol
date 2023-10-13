@@ -1,5 +1,6 @@
 import  { useState, useEffect } from "react";
 import { MapMarker, Map } from "react-kakao-maps-sdk";
+import "../styles/kakaomap.css";
 export default function KakaoMap() {
   // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
   const markerImageSrc =
@@ -50,6 +51,7 @@ export default function KakaoMap() {
     const coffeeMenu = document.getElementById("coffeeMenu");
     const storeMenu = document.getElementById("storeMenu");
     const carparkMenu = document.getElementById("carparkMenu");
+    const pharmacyMenu =document.getElementById("pharmacyMenu");
 
     if (selectedCategory === "coffee") {
       // 커피숍 카테고리를 선택된 스타일로 변경하고
@@ -90,11 +92,25 @@ export default function KakaoMap() {
       if (carparkMenu) {
         carparkMenu.className = "menu_selected";
       }
+    } else if (selectedCategory === "pharmacy") {
+      // 주차장 카테고리가 클릭됐을 때
+
+      // 주차장 카테고리를 선택된 스타일로 변경하고
+      if (coffeeMenu) {
+        coffeeMenu.className = "";
+      }
+      if (storeMenu) {
+        storeMenu.className = "";
+      }
+
+      if (carparkMenu) {
+        carparkMenu.className = "menu_selected";
+      }
     }
   }, [selectedCategory]);
 
   return (
-    <>
+    <div className="kakao-map">
       {/* <CategoryMarkerStyle /> */}
       <div id="mapwrap">
         <Map // 지도를 표시할 Container
@@ -156,6 +172,21 @@ export default function KakaoMap() {
                 }}
               />
             ))}
+          {selectedCategory === "pharmacy" &&
+            carparkPositions.map((position) => (
+              <MapMarker
+                key={`pharmacy-${position.lat},${position.lng}`}
+                position={position}
+                image={{
+                  src: markerImageSrc,
+                  size: imageSize,
+                  options: {
+                    spriteSize: spriteSize,
+                    spriteOrigin: carparkOrigin,
+                  },
+                }}
+              />
+            ))}
         </Map>
         {/* 지도 위에 표시될 마커 카테고리 */}
         <div className="category">
@@ -172,13 +203,13 @@ export default function KakaoMap() {
               <span className="ico_comm ico_carpark"></span>
               의류
             </li>
-            <li id="carparkMenu" onClick={() => setSelectedCategory("carpark")}>
-              <span className="ico_comm ico_carpark"></span>
+            <li id="pharmacyMenu" onClick={() => setSelectedCategory("pharmacy")}>
+              <span className="ico_comm ico_pharmacy"></span>
               가구
             </li>
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
