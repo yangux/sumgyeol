@@ -31,10 +31,13 @@ export default function Header() {
             <Link to="/experience">체험하기</Link>
           </li>
         </ul>
-        <div>
-          <a href="#" onClick={() => setModal(true)}>
-            <FontAwesomeIcon icon={faBars} />
-          </a>
+        <div className="login-flex">
+          <div>
+            <button className="plain round">로그인</button>
+          </div>
+          <div className="person-icon">
+            <img src={`${process.env.PUBLIC_URL}/assets/person.svg`} alt="" />
+          </div>
         </div>
       </header>
       {modal && <MyPage setModal={setModal} />}

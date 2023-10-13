@@ -18,6 +18,10 @@
   position: relative;
 }
 
+.header>a{
+  height: fit-content;
+}
+
 header .header-logo {
   height: fit-content;
 }
