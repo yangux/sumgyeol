@@ -14,10 +14,10 @@ function Home() {
     <>
       {/* Header 메뉴 & 로고 */}
       <Header />
-      <main className="wrapper">
         <Link to="introduce">
           <MainBanner />
         </Link>
+      <main className="wrapper">
       </main>
       <ItemCategory />
       <LimitedQuantity />

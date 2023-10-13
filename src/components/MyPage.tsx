@@ -109,7 +109,7 @@ const Btn = styled.button`
 
 export default function MyPage({ setModal }: any) {
   const cartList = useSelector((state: RootState) => state.cart.list);
-  const cartAddedList = cartList.filter((item) => item.added);
+  const cartAddedList = cartList.filter((item:any) => item.added);
   const firstMessage = useSelector(
     (state: RootState) => state.cart.firstMessage
   );
@@ -128,7 +128,7 @@ export default function MyPage({ setModal }: any) {
       </TabMenu>
       <CartList>
         {firstMessage && <FirstMessage>{firstMessage}</FirstMessage>}
-        {cartAddedList.map((data: any, i) => (
+        {cartAddedList.map((data: any, i:number) => (
           <CartListItem
             name={data.name}
             brand={data.brand}

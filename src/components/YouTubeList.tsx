@@ -2,7 +2,7 @@ import YouTube from "react-youtube";
 import "../styles/youtubelist.css";
 export default function YouTubeList() {
   return (
-    <section className="youtube-list">
+    <section className="youtube-list"> 
       <div className="youtube-list-2fr">
         <YouTube
         className="youtube-list-iframe"

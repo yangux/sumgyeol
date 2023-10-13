@@ -46,11 +46,6 @@ const KakaoMap = () => {
 
     var latlng = new window.kakao.maps.LatLng(37.74913611, 128.8784972);
 
-    const poArr = [
-      [new window.kakao.maps.LatLng(37.74913611, 128.8784972)],
-      [new window.kakao.maps.LatLng(37.74913611, 128.8784972)],
-      [new window.kakao.maps.LatLng(37.74913611, 128.8784972)],
-    ];
 
     // 지도를 이동 시킨다.
     // map.panTo(currentPos);
