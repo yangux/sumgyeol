@@ -1,16 +1,19 @@
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCommentDots,
+  faHeart,
+  faSquarePlus,
+} from "@fortawesome/free-regular-svg-icons";
 import { addComma, getSalePrice } from "../../utils/price";
 import { Item } from "../../utils/workItemsdata";
+import { useDispatch } from "react-redux";
+import { add } from "../../store/modules/cart";
 
 const ItemContainer = styled.div`
   display: inline-block;
   min-width: 200px;
-  border-radius: 5px;
   margin-bottom: 40px;
-  overflow: hidden;
 
   &.mainSize {
     width: inherit;
@@ -18,7 +21,8 @@ const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    border-radius: 5px;
+    overflow: hidden;
   }
 `;
 const ItemImg = styled.div`
@@ -32,6 +36,12 @@ const ItemImg = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  }
+  @media (max-width: 540px) {
+    height: 300px;
+  }
+  @media (max-width: 400px) {
+    height: 240px;
   }
 `;
 const ItemDesc = styled.ul`
@@ -70,6 +80,8 @@ const SalePrice = styled.h4`
 `;
 const More = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 1rem;
   color: var(--text-gray-40);
 
@@ -85,6 +97,21 @@ const More = styled.div`
     font-size: 12px;
   }
 `;
+const CartBtn = styled.button`
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0.2em 0.45em;
+  color: var(--text-gray-40);
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-gray-60);
+  }
+`;
 
 export default function WorkItem(props: Item) {
   const {
@@ -97,6 +124,7 @@ export default function WorkItem(props: Item) {
     image,
     className,
   } = props;
+  const dispatch = useDispatch();
   return (
     <ItemContainer className={className}>
       <ItemImg>
@@ -111,16 +139,37 @@ export default function WorkItem(props: Item) {
         <SalePrice>
           {addComma(getSalePrice(originalPrice, discountRate))}원
         </SalePrice>
-        <More>
-          <div>
-            <FontAwesomeIcon icon={faCommentDots} />
-            <p>{reviewCount}</p>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faHeart} />
-            <p>{likeCount}</p>
-          </div>
-        </More>
+        {reviewCount && likeCount && (
+          <More>
+            <div>
+              <div>
+                <FontAwesomeIcon icon={faCommentDots} />
+                <p>{reviewCount}</p>
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faHeart} />
+                <p>{likeCount}</p>
+              </div>
+            </div>
+            <CartBtn
+              onClick={() =>
+                dispatch(
+                  add({
+                    name: name,
+                    brand: brand,
+                    originalPrice: originalPrice,
+                    discountRate: discountRate,
+                    image: image,
+                    added: true,
+                  })
+                )
+              }
+            >
+              <FontAwesomeIcon icon={faSquarePlus} />
+              <p>담기</p>
+            </CartBtn>
+          </More>
+        )}
       </ItemDesc>
     </ItemContainer>
   );

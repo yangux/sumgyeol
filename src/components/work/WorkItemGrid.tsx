@@ -5,13 +5,27 @@ import WorkItem from "./WorkItem";
 import CategoryMenu from "./CategoryMenu";
 
 const Section = styled.div`
-  max-width: 1120px;
-  margin: 50px auto;
+  /* max-width: 1120px; */
+  width: 100%;
+  padding: 50px;
 `;
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  gap: 15px;
+
+  @media (max-width: 1130px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 730px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 540px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export default function WorkItemGrid() {

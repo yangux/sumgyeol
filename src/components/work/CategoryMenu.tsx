@@ -8,15 +8,8 @@ const MenuContainer = styled.ul`
 
   li {
     margin-right: 1.2rem;
+    line-height: 1.6;
 
-    &:not(li:last-child)::after {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 80%;
-      background-color: var(--text-gray-40);
-      margin-left: 1.2rem;
-    }
     label {
       cursor: pointer;
       &.off {
@@ -29,6 +22,20 @@ const MenuContainer = styled.ul`
     }
     input {
       appearance: none;
+    }
+  }
+  @media (max-width: 550px) {
+    position: sticky;
+    top: 0;
+    min-width: 100%;
+    background-color: #fff;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin-bottom: 0.5rem;
+      margin: 0;
     }
   }
 `;
