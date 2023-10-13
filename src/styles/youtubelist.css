@@ -1,0 +1,23 @@
+.youtube-list{
+  display: flex;
+}
+
+.youtube-list .youtube-list-2fr{
+  width: 55%;
+  /* height: 100%; */
+}
+
+.youtube-list .youtube-list-2fr .youtube-list-iframe{
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-list .youtube-list-2fr .youtube-list-iframe iframe{
+  height: 100%;
+  width: 100%;
+}
+
+.youtube-list .youtube-list-1fr-wrapper{
+  width: 33%;
+  height: 100%;
+}

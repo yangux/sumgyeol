@@ -16,9 +16,8 @@ const ItemContainer = styled.div`
   margin-bottom: 40px;
 
   &.mainSize {
-    width: 480px;
+    width: inherit;
     height: 682px;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

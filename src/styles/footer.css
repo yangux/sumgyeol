@@ -1,0 +1,38 @@
+
+@charset "utf-8";
+
+/* 모든 걸 초기화 시키고 나만의 CSS를 적용 */
+@import "./reset";
+
+/* html 태그에 적용되는 기본 스타일 */
+@import "./root";
+
+@import "./style";
+
+footer{
+  width: 100%;
+  height: 330px;
+  border-top: 1px solid var(--text-gray-70);
+  position: relative;
+  padding-top: 43px;
+  padding-left: 41px;
+}
+
+footer .footer-wave{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer .footer-flex-row h1{
+  margin-bottom: 34px;
+}
+
+footer .footer-flex-row p{
+  margin-top: 12px;
+}
+
+.footer .footer-flex-row{
+  display: flex;
+  justify-content: space-between;
+}

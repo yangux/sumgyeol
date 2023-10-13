@@ -1,6 +1,8 @@
 import "../styles/limitedquantity.css";
 import MainSlider from "../components/MainSlider";
 import "../styles/buttons.css";
+import { Link } from "react-router-dom";
+
 export default function LimitedQuantity() {
   return (
     <section className="limitedquantity">
@@ -16,7 +18,9 @@ export default function LimitedQuantity() {
           <br />
           놓치지마세요.
         </p>
-        <button className="primary">더 많은 상품 보기</button>
+        <Link to="work">
+          <button className="primary">더 많은 상품 보기</button>
+        </Link>
       </div>
       <div>
         <MainSlider />

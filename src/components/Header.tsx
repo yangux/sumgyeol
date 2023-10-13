@@ -9,8 +9,8 @@ import MyPage from "./MyPage";
 export default function Header() {
   const [modal, setModal] = useState(false);
   return (
-    <div>
-      <header className="header">
+    <header className="header">
+      <Link to="http://localhost:3000/">
         <h1>
           <img
             src={`${process.env.PUBLIC_URL}/assets/sumgyeol.svg`}

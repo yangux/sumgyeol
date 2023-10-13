@@ -1,3 +1,17 @@
+.main-slide .mainSize>div{
+  height: 530px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.main-slide .mainSize>div img{
+  height: 100%;
+}
+
+.main-slide .mainSize>ul{
+  padding: 0 15px;
+}
+
 .swiper-button-next{
   color: var(--text-gray-40);
 }
