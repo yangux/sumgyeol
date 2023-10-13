@@ -9,15 +9,17 @@ import MyPage from "./MyPage";
 export default function Header() {
   const [modal, setModal] = useState(false);
   return (
-    <header className="header">
-      <Link to="http://localhost:3000/">
-        <h1>
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/sumgyeol.svg`}
-            alt=""
-            className="logo"
-          />
-        </h1>
+    <div>
+      <header className="header">
+        <Link to="http://localhost:3000/">
+          <h1>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/sumgyeol.svg`}
+              alt=""
+              className="logo"
+            />
+          </h1>
+        </Link>
         <ul className="header-menu">
           <li>
             <Link to="/introduce">장인소개</Link>
