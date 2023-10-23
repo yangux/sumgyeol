@@ -27,21 +27,11 @@ const ItemContainer = styled.div`
 `;
 const ItemImg = styled.div`
   width: 100%;
-  height: 200px;
+  border-radius: 5px;
   overflow: hidden;
-  position: relative;
 
   img {
     width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  @media (max-width: 540px) {
-    height: 300px;
-  }
-  @media (max-width: 400px) {
-    height: 240px;
   }
 `;
 const ItemDesc = styled.ul`

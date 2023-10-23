@@ -31,16 +31,20 @@ const Gnb = styled.ul`
   display: flex;
 
   li {
-    margin-right: 5rem;
+    margin-right: 5.6rem;
+    color: var(--text-gray-60);
   }
   li:last-child {
     margin-right: 0;
   }
+  li:hover {
+    color: var(--text-gray-70);
+  }
   li::after {
-    margin-top: 0.1rem;
+    margin-top: 0.12rem;
     display: block;
     content: "";
-    border-bottom: solid 2px var(--text-gray-70);
+    border-bottom: solid 1.5px var(--text-gray-70);
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
     transform-origin: 0% 50%;
@@ -77,10 +81,6 @@ const BtnLogin = styled.button`
   border-radius: 25px;
   padding: 0.3em 1em;
   font-size: 12px;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export default function Header() {

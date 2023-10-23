@@ -7,9 +7,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-flex-row">
         <div>
-          <h1>
+          <h1 style={{ width: "120px" }}>
             <img
-              src={`${process.env.PUBLIC_URL}/assets/sumgyeol.svg`}
+              src={`${process.env.PUBLIC_URL}/assets/logo.png`}
               alt=""
               className="logo"
             />

@@ -5,18 +5,16 @@ import WorkItem from "./WorkItem";
 import CategoryMenu from "./CategoryMenu";
 
 const Section = styled.div`
-  /* max-width: 1120px; */
   width: 100%;
-  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 `;
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
 
-  @media (max-width: 1130px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
   @media (max-width: 950px) {
     grid-template-columns: repeat(3, 1fr);
   }
